@@ -24,6 +24,7 @@ public:
 		rel(*this, grid.col(n + 2), IRT_EQ, 0);
 		rel(*this, grid.col(n + 3), IRT_EQ, 0);
 
+		// Ignore outer border
 		for (int i = 1; i < n + 3; i++) {
 			for (int j = 1; j < n + 3; j++) {
 
@@ -68,7 +69,7 @@ public:
 		std::cout << "{";
 		for (int i = 1; i <= gridVector.size(); i++) {
 			std::cout << gridVector[i - 1];
-			if (gridVector[i -1].val() == 1)
+			if (gridVector[i - 1].val() == 1)
 				counter++;
 			if ((i % (n + 4)) == 0) {
 				std::cout << "}" << std::endl;
