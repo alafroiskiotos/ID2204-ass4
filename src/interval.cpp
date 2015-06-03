@@ -96,14 +96,10 @@ public:
 		for (int i = start; i < x.size(); i++) {
 			// Check if we can have a mandatory part
 			if (!x[i].assigned() && (x[i].min() + w[i] - (ceil(p * w[i])) < x[i].max())) {
-				std::cout << "STATUS: Mandatory part" << std::endl;
-				std::cout << "START: " << i << std::endl;
 				start = i;
 				return true;
 			}
 		}
-
-		std::cout << "STATUS: NO mandatory part" << std::endl;
 
 		return false;
 	}
@@ -112,8 +108,6 @@ public:
 	virtual const Choice* choice(Space& home) {
 		int obligStart = x[start].min();
 		int obligEnd = obligStart + w[start] - ceil(p * w[start]);
-
-		std::cout << "Oblig Start: " << obligStart << " Oblig End: " << obligEnd << std::endl;
 
 		return new Description(*this, 2, start, obligStart, obligEnd);
 
@@ -150,7 +144,7 @@ virtual void print(const Space& home, const Choice& c, unsigned int b,
 	if (b == 0) {
 		o << "[" << pos << "] ->" << "{" << stMin << "..." << stMax << "}";
 	} else {
-		o << "b != 2";
+		o << "Second alternative";
 	}
 
 }
