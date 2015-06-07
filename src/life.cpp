@@ -85,8 +85,10 @@ public:
 		std::cout << std::endl;
 	}
 
+	// We want only better solutions
 	virtual void constrain(const Space& _home) {
 		const Life& home = static_cast<const Life&>(_home);
+		// Sum of aces greater than before
 		rel(*this, sum(gridVector) > sum(home.gridVector));
 	}
 };
